@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attos Fit — Central Legal & Privacidade</title>
+  <meta name="description" content="Central oficial de Termos de Uso, Política de Privacidade e Diretrizes de Saúde do aplicativo Attos Fit.">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --border: #1f2937;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --brand: #2563eb;
+      --brand-hover: #1d4ed8;
+      --brand-glow: rgba(37, 99, 235, 0.15);
+      --accent: #10b981;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --card-bg: #ffffff;
+        --border: #e2e8f0;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --brand: #2563eb;
+        --brand-hover: #1d4ed8;
+        --brand-glow: rgba(37, 99, 235, 0.08);
+        --accent: #059669;
+      }
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 16px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 680px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 40px 32px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--brand-glow);
+      color: var(--brand);
+      font-weight: 800;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    @media (max-width: 580px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      border-color: var(--brand);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+    }
+    .card-icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .card-cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .info-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .info-box strong {
+      color: var(--text-main);
+      display: block;
+      margin-bottom: 4px;
+    }
+    footer {
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">Legal & Conformidade</span>
+    <h1>Attos Fit</h1>
+    <p class="subtitle">Documentos legais oficiais, termos de uso, isenções de responsabilidade médica e proteção de dados (LGPD).</p>
+
+    <div class="grid">
+      <a href="privacy.html" class="card">
+        <div>
+          <div class="card-icon">🔒</div>
+          <h2 class="card-title">Política de Privacidade</h2>
+          <p class="card-desc">Conformidade com a LGPD (Lei 13.709/2018), coleta de dados sensíveis de saúde, segurança e direitos do titular.</p>
+        </div>
+        <span class="card-cta">Acessar Política →</span>
+      </a>
+
+      <a href="terms.html" class="card">
+        <div>
+          <div class="card-icon">📋</div>
+          <h2 class="card-title">Termos de Uso & Saúde</h2>
+          <p class="card-desc">Isenções de responsabilidade médica/CREF/CFN, uso da Inteligência Artificial e condições de assinaturas Attos PRO.</p>
+        </div>
+        <span class="card-cta">Acessar Termos →</span>
+      </a>
+    </div>
+
+    <div class="info-box">
+      <strong>🗑️ Exclusão de Conta e Dados (Diretriz Google Play & Apple Store)</strong>
+      Usuários do aplicativo Attos Fit podem solicitar a exclusão de seus dados diretamente pelo aplicativo (em <i>Perfil > Preferências > Dados > Excluir Conta e Dados</i>) ou enviando um e-mail para <b>privacidade.attos@gmail.com</b> com o assunto "Exclusão de Conta".
+    </div>
+
+    <footer>
+      <p>Aplicativo: <strong>Attos Fit</strong> (com.attos.app) • © 2026 Todos os direitos reservados.</p>
+    </footer>
+  </div>
+</body>
+</html>
