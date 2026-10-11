@@ -1,24 +1,38 @@
-# Attos Fit — Guia do Usuário & Central Legal (GitHub Pages)
+# Attos — site (GitHub Pages)
 
-Repositório público com o Guia Oficial do Usuário, Passo a Passo Visual, Termos de Uso, Política de Privacidade (LGPD) e Diretrizes de Saúde do aplicativo **Attos Fit**.
+Site público do aplicativo **Attos**: página inicial, guia do app passo a passo, termos de uso, política de privacidade e instruções para excluir conta e dados. Em português, espanhol e inglês, com tema claro e escuro.
 
-## 🌐 URLs Públicas (GitHub Pages):
+## Endereços
 
-- **Portal Oficial & Guia do App:** [https://antonio13050.github.io/attos-legal/](https://antonio13050.github.io/attos-legal/)
-- **Política de Privacidade (LGPD):** [https://antonio13050.github.io/attos-legal/privacy.html](https://antonio13050.github.io/attos-legal/privacy.html)
-- **Termos de Uso e Isenção de Saúde:** [https://antonio13050.github.io/attos-legal/terms.html](https://antonio13050.github.io/attos-legal/terms.html)
-- **Central Legal Unificada:** [https://antonio13050.github.io/attos-legal/legal.html](https://antonio13050.github.io/attos-legal/legal.html)
+- Site: https://antonio13050.github.io/attos-legal/
+- Guia do app: https://antonio13050.github.io/attos-legal/guide.html
+- Política de privacidade: https://antonio13050.github.io/attos-legal/privacy.html
+- Termos de uso: https://antonio13050.github.io/attos-legal/terms.html
+- Excluir conta e dados: https://antonio13050.github.io/attos-legal/legal.html#delete
 
-## 📱 Recursos Documentados:
-- **Primeiro Acesso:** Onboarding, Ficha do Atleta e Anamnese.
-- **Treinos & Fichas:** Rotinas prontas, criação personalizada e biblioteca com mais de 30 exercícios com fotos de execução e músculos primários/secundários.
-- **Treinando na Academia:** Modo treino ativo, cronômetro de descanso, ajuste de carga e repetições em tempo real.
-- **Coach IA:** Geração de treinos por chat e digitalização de ficha por foto (OCR inteligente).
-- **Dieta & Hidratação:** Cálculo de TDEE, macros e registro de ingestão de água.
-- **Histórico & 1RM:** Gráficos de volume, evolução e calculadora de 1RM estimada.
+Espanhol em `/es/` e inglês em `/en/`, com os mesmos nomes de arquivo.
 
-## 📋 Conformidade:
-- **LGPD** — Lei Federal nº 13.709/2018 (Dados pessoais sensíveis de saúde)
-- **Google Play Console** — Requisitos de Data Safety e Política de Privacidade
-- **Apple App Store Review Guidelines** — Seção 1.4.1 (Health & Medical) e 5.1.1(v) (Account Deletion)
-- **Diretrizes de IA Generativa** — Avisos de conteúdo gerado por IA e mecanismo de denúncia
+## Como o site é montado
+
+O site é estático e não tem dependências. As páginas `.html` são geradas por `build.mjs` a partir dos textos em `content/`.
+
+```
+node build.mjs
+```
+
+| Pasta ou arquivo | O que é |
+|---|---|
+| `content/pt-BR.mjs`, `es.mjs`, `en.mjs` | Textos da página inicial e do guia |
+| `content/legal.*.mjs` | Termos, privacidade e exclusão de conta |
+| `build.mjs` | Modelos das páginas e a lista de capítulos e passos do guia |
+| `assets/site.css`, `assets/site.js` | Visual, tema, menu e ampliação das capturas |
+| `assets/shots/<idioma>/<tema>/` | Capturas do app (390×844, WebP) |
+| `index.html`, `guide.html`, `legal.html`, `privacy.html`, `terms.html`, `es/`, `en/` | Páginas geradas: não edite à mão |
+
+Para mudar um texto, edite o arquivo em `content/` e rode `node build.mjs`. O português é o documento original; as traduções dos textos legais levam um aviso de que a versão em português prevalece.
+
+O endereço da loja e os e-mails de contato ficam no objeto `SITE`, no topo de `build.mjs`.
+
+## Capturas do app
+
+As capturas são tiradas do próprio app (repositório `vitalix`), com dados de exemplo, em três idiomas e dois temas. O build avisa se faltar alguma captura citada no guia.
