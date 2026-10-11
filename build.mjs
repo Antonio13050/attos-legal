@@ -10,7 +10,9 @@ import en from './content/en.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SITE = {
-  playUrl: 'https://play.google.com/store/apps/details?id=com.attos.app',
+  // Enquanto o app está em teste interno não há página pública na loja: deixe null.
+  // Ao publicar, troque por 'https://play.google.com/store/apps/details?id=com.attos.app'
+  playUrl: null,
   support: 'antonio13050@gmail.com',
   privacy: 'privacidade.attos@gmail.com',
   base: 'https://antonio13050.github.io/attos-legal/',
@@ -34,6 +36,11 @@ const GUIDE = [
   ['settings', [['account', ['settings']], ['sheet', ['athlete-sheet']], ['reminders', ['settings-reminders', 'quiet-hours']], ['look', ['settings-appearance', 'language']], ['delete', ['delete-account']]]],
   ['pro', [['plans', ['pro']]]],
 ];
+
+/** Botão da loja; sem endereço público vira o aviso "em breve" */
+const storeButton = (c) => (SITE.playUrl
+  ? `<a class="btn" href="${SITE.playUrl}" rel="noopener">${ICON.play}${c.nav.download}</a>`
+  : `<span class="btn soon">${ICON.play}${c.nav.soon}</span>`);
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 const ICON = {
