@@ -1,20 +1,20 @@
-# Attos — site (GitHub Pages)
+# Attos — site (attosfit.com)
 
 Site público do aplicativo **Attos**: página inicial, guia do app passo a passo, termos de uso, política de privacidade e instruções para excluir conta e dados. Em português, espanhol e inglês, com tema claro e escuro.
 
 ## Endereços
 
-- Site: https://antonio13050.github.io/attos-legal/
-- Guia do app: https://antonio13050.github.io/attos-legal/guide.html
-- Política de privacidade: https://antonio13050.github.io/attos-legal/privacy.html
-- Termos de uso: https://antonio13050.github.io/attos-legal/terms.html
-- Excluir conta e dados: https://antonio13050.github.io/attos-legal/legal.html#delete
+- Site: https://attosfit.com/
+- Guia do app: https://attosfit.com/guide.html
+- Política de privacidade: https://attosfit.com/privacy.html
+- Termos de uso: https://attosfit.com/terms.html
+- Excluir conta e dados: https://attosfit.com/legal.html#delete
 
 Espanhol em `/es/` e inglês em `/en/`, com os mesmos nomes de arquivo.
 
 ## Como o site é montado
 
-O site é estático e não tem dependências. As páginas `.html` são geradas por `build.mjs` a partir dos textos em `content/`.
+O site é estático e não tem dependências. Fica hospedado na Cloudflare (`wrangler.toml`); para publicar: `node build.mjs && npx wrangler@4.142.0 deploy`. As páginas `.html` são geradas por `build.mjs` a partir dos textos em `content/`.
 
 ```
 node build.mjs

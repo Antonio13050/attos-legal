@@ -15,7 +15,7 @@ const SITE = {
   playUrl: null,
   support: 'antonio13050@gmail.com',
   privacy: 'privacidade.attos@gmail.com',
-  base: 'https://antonio13050.github.io/attos-legal/',
+  base: 'https://attosfit.com/',
 };
 const LANGS = [
   { code: 'pt-BR', dir: '', short: 'PT', content: pt },
@@ -330,4 +330,10 @@ for (const lang of LANGS) {
   fs.writeFileSync(path.join(out, 'privacy.html'), docPage(lang, 'privacy.html', L.privacy));
   fs.writeFileSync(path.join(out, 'terms.html'), docPage(lang, 'terms.html', L.terms));
 }
+fs.writeFileSync(path.join(ROOT, '404.html'), shell(LANGS[0], '404.html', {
+  title: 'Página não encontrada — Attos',
+  desc: 'Página não encontrada.',
+  current: '',
+  body: `<div class="prose-wrap"><div class="page-head" style="padding-left:0;padding-right:0"><h1>Página não encontrada</h1><p>O endereço pode ter mudado. <a href="/">Voltar ao início</a> · <a href="/en/">English</a> · <a href="/es/">Español</a></p></div></div>`,
+}).replaceAll('href="./"', 'href="/"').replaceAll('"assets/', '"/assets/').replaceAll('href="guide.html"', 'href="/guide.html"').replaceAll('href="legal.html', 'href="/legal.html').replaceAll('href="privacy.html"', 'href="/privacy.html"').replaceAll('href="terms.html"', 'href="/terms.html"').replaceAll('href="es/', 'href="/es/').replaceAll('href="en/', 'href="/en/'));
 console.log(`ok: ${LANGS.length * PAGES.length} páginas, ${shots.size} capturas por idioma e tema`);

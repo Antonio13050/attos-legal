@@ -1,0 +1,12 @@
+# Site do Attos em attosfit.com (Cloudflare Workers, só arquivos estáticos)
+# Publicar: node build.mjs && npx wrangler@4.142.0 deploy
+name = "attos-site"
+compatibility_date = "2026-09-01"
+routes = [
+  { pattern = "attosfit.com", custom_domain = true },
+  { pattern = "www.attosfit.com", custom_domain = true },
+]
+
+[assets]
+directory = "."
+not_found_handling = "404-page"
