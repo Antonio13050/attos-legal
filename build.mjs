@@ -164,7 +164,7 @@ function homePage(lang) {
       <h1>${h.h1}</h1>
       <p class="lead">${h.lead}</p>
       <div class="cta">
-        <a class="btn" href="${SITE.playUrl}" rel="noopener">${ICON.play}${c.nav.download}</a>
+        ${storeButton(c)}
         <a class="btn ghost" href="guide.html">${h.ctaGuide}${ICON.arrow}</a>
       </div>
       <div class="facts">${h.facts.map(([b, t]) => `<div><b>${b}</b>${t}</div>`).join('')}</div>
@@ -210,7 +210,7 @@ function homePage(lang) {
   <div class="wrap">
     <div class="band">
       <div><h2>${h.band.title}</h2><p>${h.band.text}</p></div>
-      <a class="btn" href="${SITE.playUrl}" rel="noopener">${ICON.play}${c.nav.download}</a>
+      ${storeButton(c)}
     </div>
   </div>
 </section>`;
