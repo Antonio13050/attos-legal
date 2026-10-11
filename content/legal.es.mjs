@@ -78,6 +78,7 @@ export default {
           [
             '<b>Google Firebase (Google):</b> inicio de sesión con la cuenta de Google y base de datos en la nube, usados solo si inicias sesión con Google.',
             '<b>Proveedores de inteligencia artificial (OpenRouter y Google Gemini):</b> cuando usas el Coach IA o el ajuste de dieta con IA, tu mensaje se envía al proveedor junto con el contexto de tu perfil: primer nombre, edad, peso, altura, objetivo, nivel, lugar de entrenamiento, dolores indicados, preferencias de alimentación, suplementos registrados, metas de la dieta, consumo de agua y un resumen de tus entrenamientos recientes. Las fotos de rutinas que adjuntes también se envían para su lectura. No enviamos correo, contraseña ni datos de pago.',
+            '<b>Cloudflare:</b> aloja el servidor del Coach IA, por donde pasan los mensajes antes de llegar al proveedor de IA. Allí se guardan el contador diario de mensajes y las respuestas que reportes.',
             '<b>Google Play y RevenueCat:</b> procesan la suscripción de Attos PRO e informan a la app si está activa.',
           ],
           'Estos proveedores pueden tratar datos en servidores fuera de Brasil, conforme a sus propias políticas de privacidad y a las salvaguardas que la LGPD prevé para la transferencia internacional.',

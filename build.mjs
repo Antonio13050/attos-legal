@@ -13,8 +13,8 @@ const SITE = {
   // Enquanto o app está em teste interno não há página pública na loja: deixe null.
   // Ao publicar, troque por 'https://play.google.com/store/apps/details?id=com.attos.app'
   playUrl: null,
-  support: 'antonio13050@gmail.com',
-  privacy: 'privacidade.attos@gmail.com',
+  support: 'contato@attosfit.com',
+  privacy: 'privacidade@attosfit.com',
   base: 'https://attosfit.com/',
 };
 const LANGS = [

@@ -293,11 +293,12 @@ export default {
         text: 'El Coach IA responde sobre entrenamiento, alimentación y ejecución de los ejercicios tomando en cuenta tu perfil.',
         how: [
           'En la barra inferior, toca <b>Coach IA</b>.',
-          'Toca una de las sugerencias sobre el campo de texto o escribe tu pregunta.',
-          'Toca el botón de enviar.',
+          'Toca una de las sugerencias de la pantalla inicial o escribe tu pregunta en el campo de abajo.',
+          'Toca la flecha para enviar. La respuesta aparece poco a poco; mientras tanto, el botón se convierte en un cuadrado que detiene la respuesta.',
+          'Debajo de cada respuesta hay tres acciones: copiar el texto, generar de nuevo y reportar.',
           'El contador bajo el título muestra cuántos mensajes te quedan hoy en el plan gratis: son 5 al día.',
         ],
-        tip: 'El Coach IA puede equivocarse. Usa las respuestas como apoyo y toca Reportar si una respuesta parece incorrecta o inapropiada.',
+        tip: 'El Coach IA puede equivocarse. Usa las respuestas como apoyo y toca la bandera para reportar una respuesta incorrecta o inapropiada. Una respuesta que detienes a la mitad no gasta mensaje.',
       },
       'coach.plan': {
         title: 'Pide un entrenamiento y guárdalo en la app',

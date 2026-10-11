@@ -293,11 +293,12 @@ export default {
         text: 'AI Coach answers questions about training, nutrition and exercise form with your profile in mind.',
         how: [
           'On the bottom bar, tap <b>AI Coach</b>.',
-          'Tap one of the suggestions above the text field, or type your question.',
-          'Tap the send button.',
+          'Tap one of the suggestions on the start screen, or type your question in the field at the bottom.',
+          'Tap the arrow to send. The answer appears as it is written; meanwhile the button turns into a square that stops the answer.',
+          'Under each answer there are three actions: copy the text, regenerate and report.',
           'The counter under the title shows how many messages you have left today on the free plan: 5 a day.',
         ],
-        tip: 'AI Coach can make mistakes. Use its answers as support and tap Report if an answer looks wrong or inappropriate.',
+        tip: 'AI Coach can make mistakes. Use its answers as support and tap the flag to report an answer that looks wrong or inappropriate. An answer you stop midway does not use up a message.',
       },
       'coach.plan': {
         title: 'Ask for a workout and save it to the app',
