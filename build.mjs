@@ -336,4 +336,19 @@ fs.writeFileSync(path.join(ROOT, '404.html'), shell(LANGS[0], '404.html', {
   current: '',
   body: `<div class="prose-wrap"><div class="page-head" style="padding-left:0;padding-right:0"><h1>Página não encontrada</h1><p>O endereço pode ter mudado. <a href="/">Voltar ao início</a> · <a href="/en/">English</a> · <a href="/es/">Español</a></p></div></div>`,
 }).replaceAll('href="./"', 'href="/"').replaceAll('"assets/', '"/assets/').replaceAll('href="guide.html"', 'href="/guide.html"').replaceAll('href="legal.html', 'href="/legal.html').replaceAll('href="privacy.html"', 'href="/privacy.html"').replaceAll('href="terms.html"', 'href="/terms.html"').replaceAll('href="es/', 'href="/es/').replaceAll('href="en/', 'href="/en/'));
+
+// Mapa do site para os buscadores: cada página com as versões nos três idiomas
+const pageUrl = (l, file) => `${SITE.base}${l.dir}${file === 'index.html' ? '' : file}`;
+const today = new Date().toISOString().slice(0, 10);
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${PAGES.flatMap((file) => LANGS.map((l) => `  <url>
+    <loc>${pageUrl(l, file)}</loc>
+    <lastmod>${today}</lastmod>
+${LANGS.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.code}" href="${pageUrl(a, file)}"/>`).join('\n')}
+  </url>`)).join('\n')}
+</urlset>
+`;
+fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
+fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE.base}sitemap.xml\n`);
 console.log(`ok: ${LANGS.length * PAGES.length} páginas, ${shots.size} capturas por idioma e tema`);
