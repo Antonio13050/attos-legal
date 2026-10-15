@@ -23,6 +23,8 @@ const LANGS = [
   { code: 'en', dir: 'en/', short: 'EN', content: en },
 ];
 const PAGES = ['index.html', 'guide.html', 'legal.html', 'privacy.html', 'terms.html'];
+// Endereço público de cada página: a Cloudflare serve sem o .html (e redireciona quem pede com .html)
+const route = (file) => (file === 'index.html' ? '' : file.replace(/\.html$/, ''));
 
 /** Capítulos e passos do guia: a ordem e as capturas valem para os três idiomas */
 const GUIDE = [
@@ -61,9 +63,9 @@ function shell(lang, file, { title, desc, body, current }) {
   const c = lang.content;
   const up = lang.dir ? '../' : '';
   const a = `${up}assets/`;
-  const here = (l) => `${lang.dir ? '../' : ''}${l.dir}${file === 'index.html' ? '' : file}` || './';
-  const link = (f) => (f === 'index.html' ? './' : f);
-  const alternates = LANGS.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${SITE.base}${l.dir}${file === 'index.html' ? '' : file}">`).join('\n  ');
+  const here = (l) => `${lang.dir ? '../' : ''}${l.dir}${route(file)}` || './';
+  const link = (f) => route(f) || './';
+  const alternates = LANGS.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${SITE.base}${l.dir}${route(file)}">`).join('\n  ');
   const boot = `(function(){try{var t=localStorage.getItem('attos_site_theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})();`;
   // Só a página inicial em português redireciona, e só na primeira visita: mesma regra do app (idioma do aparelho; sem suporte, inglês)
   const redirect = lang.code === 'pt-BR' && file === 'index.html'
@@ -81,7 +83,7 @@ function shell(lang, file, { title, desc, body, current }) {
   <meta property="og:description" content="${esc(desc)}">
   <meta property="og:type" content="website">
   <meta property="og:image" content="${SITE.base}assets/icon-192.png">
-  <link rel="canonical" href="${SITE.base}${lang.dir}${file === 'index.html' ? '' : file}">
+  <link rel="canonical" href="${SITE.base}${lang.dir}${route(file)}">
   ${alternates}
   <link rel="icon" href="${a}favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="${a}apple-touch-icon.png">
@@ -151,7 +153,7 @@ function homePage(lang) {
           <h3>${f.title}</h3>
           <p>${f.text}</p>
           <ul class="ticks">${f.ticks.map((t) => `<li>${t}</li>`).join('')}</ul>
-          <a class="more" href="guide.html#${f.chapter}">${f.more} →</a>
+          <a class="more" href="guide#${f.chapter}">${f.more} →</a>
         </div>
         ${phone(lang, f.shot, f.title)}
       </div>`).join('');
@@ -165,7 +167,7 @@ function homePage(lang) {
       <p class="lead">${h.lead}</p>
       <div class="cta">
         ${storeButton(c)}
-        <a class="btn ghost" href="guide.html">${h.ctaGuide}${ICON.arrow}</a>
+        <a class="btn ghost" href="guide">${h.ctaGuide}${ICON.arrow}</a>
       </div>
       <div class="facts">${h.facts.map(([b, t]) => `<div><b>${b}</b>${t}</div>`).join('')}</div>
     </div>
@@ -268,7 +270,7 @@ const fill = (s) => s.replaceAll('{support}', `<a href="mailto:${SITE.support}">
 
 function docPage(lang, file, doc) {
   const L = lang.content.legal;
-  const notice = lang.code === 'pt-BR' ? '' : `<div class="callout note"><h3>${L.translation.title}</h3><p>${L.translation.text.replace('{href}', `../${file}`)}</p></div>`;
+  const notice = lang.code === 'pt-BR' ? '' : `<div class="callout note"><h3>${L.translation.title}</h3><p>${L.translation.text.replace('{href}', `../${route(file)}`)}</p></div>`;
   const body = `<div class="prose-wrap">
   <div class="page-head" style="padding-left:0;padding-right:0">
     <h1>${doc.title}</h1>
@@ -294,8 +296,8 @@ function hubPage(lang) {
   const body = `<div class="prose-wrap">
   <div class="page-head" style="padding-left:0;padding-right:0"><h1>${H.title}</h1><p>${H.lead}</p></div>
   <div class="links">
-    <a class="card" href="privacy.html"><div class="ico">${ICON.shield}</div><h3>${L.privacy.title}</h3><p>${H.privacyText}</p><b>${H.read} →</b></a>
-    <a class="card" href="terms.html"><div class="ico">${ICON.dumbbell}</div><h3>${L.terms.title}</h3><p>${H.termsText}</p><b>${H.read} →</b></a>
+    <a class="card" href="privacy"><div class="ico">${ICON.shield}</div><h3>${L.privacy.title}</h3><p>${H.privacyText}</p><b>${H.read} →</b></a>
+    <a class="card" href="terms"><div class="ico">${ICON.dumbbell}</div><h3>${L.terms.title}</h3><p>${H.termsText}</p><b>${H.read} →</b></a>
   </div>
   <div class="prose">
       <h2 id="delete">${H.deleteTitle}</h2>
@@ -335,10 +337,10 @@ fs.writeFileSync(path.join(ROOT, '404.html'), shell(LANGS[0], '404.html', {
   desc: 'Página não encontrada.',
   current: '',
   body: `<div class="prose-wrap"><div class="page-head" style="padding-left:0;padding-right:0"><h1>Página não encontrada</h1><p>O endereço pode ter mudado. <a href="/">Voltar ao início</a> · <a href="/en/">English</a> · <a href="/es/">Español</a></p></div></div>`,
-}).replaceAll('href="./"', 'href="/"').replaceAll('"assets/', '"/assets/').replaceAll('href="guide.html"', 'href="/guide.html"').replaceAll('href="legal.html', 'href="/legal.html').replaceAll('href="privacy.html"', 'href="/privacy.html"').replaceAll('href="terms.html"', 'href="/terms.html"').replaceAll('href="es/', 'href="/es/').replaceAll('href="en/', 'href="/en/'));
+}).replaceAll('href="./"', 'href="/"').replaceAll('"assets/', '"/assets/').replaceAll('href="guide"', 'href="/guide"').replaceAll('href="legal', 'href="/legal').replaceAll('href="privacy"', 'href="/privacy"').replaceAll('href="terms"', 'href="/terms"').replaceAll('href="es/', 'href="/es/').replaceAll('href="en/', 'href="/en/'));
 
 // Mapa do site para os buscadores: cada página com as versões nos três idiomas
-const pageUrl = (l, file) => `${SITE.base}${l.dir}${file === 'index.html' ? '' : file}`;
+const pageUrl = (l, file) => `${SITE.base}${l.dir}${route(file)}`;
 const today = new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

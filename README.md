@@ -5,12 +5,12 @@ Site público do aplicativo **Attos**: página inicial, guia do app passo a pass
 ## Endereços
 
 - Site: https://attosfit.com/
-- Guia do app: https://attosfit.com/guide.html
-- Política de privacidade: https://attosfit.com/privacy.html
-- Termos de uso: https://attosfit.com/terms.html
-- Excluir conta e dados: https://attosfit.com/legal.html#delete
+- Guia do app: https://attosfit.com/guide
+- Política de privacidade: https://attosfit.com/privacy
+- Termos de uso: https://attosfit.com/terms
+- Excluir conta e dados: https://attosfit.com/legal#delete
 
-Espanhol em `/es/` e inglês em `/en/`, com os mesmos nomes de arquivo.
+Espanhol em `/es/` e inglês em `/en/`, com os mesmos nomes. Os endereços públicos não têm `.html` (a Cloudflare redireciona quem pede com `.html`); o sitemap e as tags canônicas usam sempre a versão sem `.html`.
 
 ## Como o site é montado
 
