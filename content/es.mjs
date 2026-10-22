@@ -2,7 +2,7 @@ import legal from './legal.es.mjs';
 
 export default {
   meta: { name: 'Español' },
-  nav: { home: 'Inicio', guide: 'Guía de la app', legal: 'Términos y privacidad', download: 'Descargar en Google Play', soon: 'Próximamente en Google Play', menu: 'Menú', theme: 'Cambiar entre tema claro y oscuro', language: 'Idioma' },
+  nav: { home: 'Inicio', guide: 'Guía de la app', legal: 'Términos y privacidad', download: 'Descargar en Google Play', soon: 'Próximamente en Google Play', menu: 'Menú', theme: 'Cambiar entre tema claro y oscuro', language: 'Idioma', hint: 'Este sitio también está en español.', hintGo: 'Ver en español', hintClose: 'Cerrar' },
   foot: {
     disclaimer: 'Attos es una herramienta para organizar tus entrenamientos. No reemplaza a un médico, a un profesional del ejercicio ni a un nutricionista.',
     rights: 'Todos los derechos reservados.',

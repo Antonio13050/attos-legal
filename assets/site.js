@@ -23,10 +23,31 @@
     if (mq.addEventListener) mq.addEventListener('change', follow);
   }
 
-  // Idioma: guarda a escolha para a página inicial não redirecionar de novo
+  // Idioma: guarda a escolha para a faixa de idioma não aparecer de novo
   document.querySelectorAll('[data-lang]').forEach(function (a) {
     a.addEventListener('click', function () { store.set('attos_site_lang', a.getAttribute('data-lang')); });
   });
+
+  // Faixa de idioma: se o aparelho usa outro idioma do site e a pessoa ainda não escolheu, oferece a mesma página nele
+  var hint = document.querySelector('.lang-hint');
+  if (hint && !store.get('attos_site_lang')) {
+    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    var pageLang = (root.getAttribute('lang') || '').slice(0, 2);
+    var device = null;
+    for (var i = 0; i < langs.length && !device; i++) {
+      var l = String(langs[i]).toLowerCase().slice(0, 2);
+      if (l === 'pt' || l === 'es' || l === 'en') device = l;
+    }
+    var offer = device && device !== pageLang ? hint.querySelector('[data-hint^="' + device + '"]') : null;
+    if (offer) {
+      offer.hidden = false;
+      hint.hidden = false;
+      hint.querySelector('[data-hint-close]').addEventListener('click', function () {
+        hint.hidden = true;
+        store.set('attos_site_lang', root.getAttribute('lang'));
+      });
+    }
+  }
 
   // Menu no celular
   var menuBtn = document.querySelector('[data-menu]');

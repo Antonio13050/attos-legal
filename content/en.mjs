@@ -2,7 +2,7 @@ import legal from './legal.en.mjs';
 
 export default {
   meta: { name: 'English' },
-  nav: { home: 'Home', guide: 'App guide', legal: 'Terms and privacy', download: 'Get it on Google Play', soon: 'Coming soon to Google Play', menu: 'Menu', theme: 'Switch between light and dark theme', language: 'Language' },
+  nav: { home: 'Home', guide: 'App guide', legal: 'Terms and privacy', download: 'Get it on Google Play', soon: 'Coming soon to Google Play', menu: 'Menu', theme: 'Switch between light and dark theme', language: 'Language', hint: 'This site is also available in English.', hintGo: 'View in English', hintClose: 'Close' },
   foot: {
     disclaimer: 'Attos is a tool for organizing your training. It does not replace a doctor, a fitness professional or a dietitian.',
     rights: 'All rights reserved.',

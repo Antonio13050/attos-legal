@@ -67,10 +67,14 @@ function shell(lang, file, { title, desc, body, current }) {
   const link = (f) => route(f) || './';
   const alternates = LANGS.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${SITE.base}${l.dir}${route(file)}">`).join('\n  ');
   const boot = `(function(){try{var t=localStorage.getItem('attos_site_theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})();`;
-  // Só a página inicial em português redireciona, e só na primeira visita: mesma regra do app (idioma do aparelho; sem suporte, inglês)
-  const redirect = lang.code === 'pt-BR' && file === 'index.html'
-    ? `<script>(function(){try{if(location.hash||localStorage.getItem('attos_site_lang'))return;var l=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'pt']).map(function(x){return String(x).toLowerCase().slice(0,2)}).filter(function(x){return x==='pt'||x==='es'||x==='en'})[0]||'en';if(l!=='pt')location.replace(l+'/')}catch(e){}})();</script>\n  `
-    : '';
+  // Sem redirecionar por idioma (o Google lê a página inicial em inglês e a trataria como cópia de /en/):
+  // site.js mostra esta faixa, no idioma do aparelho, oferecendo a mesma página nesse idioma
+  const hint = file === '404.html' ? '' : `<div class="lang-hint" hidden>
+  <div class="wrap">
+    ${LANGS.filter((l) => l.code !== lang.code).map((l) => `<p data-hint="${l.code}" lang="${l.code}" hidden>${esc(l.content.nav.hint)} <a href="${here(l)}" data-lang="${l.code}" hreflang="${l.code}">${esc(l.content.nav.hintGo)} →</a></p>`).join('\n    ')}
+    <button class="icon-btn" type="button" data-hint-close aria-label="${esc(c.nav.hintClose)}" title="${esc(c.nav.hintClose)}">×</button>
+  </div>
+</div>`;
   return `<!doctype html>
 <html lang="${lang.code}" data-theme="light">
 <head>
@@ -88,12 +92,13 @@ function shell(lang, file, { title, desc, body, current }) {
   <link rel="icon" href="${a}favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="${a}apple-touch-icon.png">
   <script>${boot}</script>
-  ${redirect}<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${a}site.css">
 </head>
 <body>
+${hint}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="./"><img src="${a}favicon.svg" alt="" width="32" height="32"><span>Attos</span></a>

@@ -2,7 +2,7 @@ import legal from './legal.pt-BR.mjs';
 
 export default {
   meta: { name: 'Português' },
-  nav: { home: 'Início', guide: 'Guia do app', legal: 'Termos e privacidade', download: 'Baixar no Google Play', soon: 'Em breve no Google Play', menu: 'Menu', theme: 'Trocar entre tema claro e escuro', language: 'Idioma' },
+  nav: { home: 'Início', guide: 'Guia do app', legal: 'Termos e privacidade', download: 'Baixar no Google Play', soon: 'Em breve no Google Play', menu: 'Menu', theme: 'Trocar entre tema claro e escuro', language: 'Idioma', hint: 'Este site também está em português.', hintGo: 'Ver em português', hintClose: 'Fechar' },
   foot: {
     disclaimer: 'O Attos é uma ferramenta de organização de treinos. Não substitui médico, profissional de educação física nem nutricionista.',
     rights: 'Todos os direitos reservados.',

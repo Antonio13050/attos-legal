@@ -62,6 +62,14 @@ button { font: inherit; color: inherit; }
 /* Imagens por tema: só a do tema ativo é desenhada (e, com loading=lazy, só ela é baixada) */
 :root[data-theme='dark'] .t-light, :root:not([data-theme='dark']) .t-dark { display: none; }
 
+/* ---------- Faixa de idioma ---------- */
+.lang-hint { background: var(--brand-soft); border-bottom: 1px solid var(--line); }
+.lang-hint[hidden], .lang-hint [hidden] { display: none; }
+.lang-hint .wrap { display: flex; align-items: center; gap: 12px; min-height: 44px; padding-top: 6px; padding-bottom: 6px; }
+.lang-hint p { margin: 0; flex: 1; font-size: 14px; color: var(--text); }
+.lang-hint a { font-weight: 700; white-space: nowrap; }
+.lang-hint .icon-btn { flex: none; font-size: 20px; line-height: 1; }
+
 /* ---------- Cabeçalho ---------- */
 .top {
   position: sticky; top: 0; z-index: 50;

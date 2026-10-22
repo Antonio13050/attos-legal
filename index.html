@@ -17,13 +17,19 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <script>(function(){try{var t=localStorage.getItem('attos_site_theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
-  <script>(function(){try{if(location.hash||localStorage.getItem('attos_site_lang'))return;var l=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'pt']).map(function(x){return String(x).toLowerCase().slice(0,2)}).filter(function(x){return x==='pt'||x==='es'||x==='en'})[0]||'en';if(l!=='pt')location.replace(l+'/')}catch(e){}})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+<div class="lang-hint" hidden>
+  <div class="wrap">
+    <p data-hint="es" lang="es" hidden>Este sitio también está en español. <a href="es/" data-lang="es" hreflang="es">Ver en español →</a></p>
+    <p data-hint="en" lang="en" hidden>This site is also available in English. <a href="en/" data-lang="en" hreflang="en">View in English →</a></p>
+    <button class="icon-btn" type="button" data-hint-close aria-label="Fechar" title="Fechar">×</button>
+  </div>
+</div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="./"><img src="assets/favicon.svg" alt="" width="32" height="32"><span>Attos</span></a>
