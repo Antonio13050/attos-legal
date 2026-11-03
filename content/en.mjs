@@ -83,7 +83,7 @@ export default {
       ['Does AI Coach replace a trainer or a dietitian?', 'No. AI Coach is a support tool: it answers questions and suggests workouts based on your profile, but it can make mistakes. Always check its suggestions and see a qualified professional, especially if you have injuries or health conditions.'],
       ['Can I use pounds instead of kilograms?', 'Yes. In Settings, under Training, switch the units between kg and lb.'],
       ['How do I delete my account and my data?', 'In the app, go to Profile, tap the gear, scroll to the bottom and tap “Delete account and data”. If you already uninstalled the app, request deletion by email. The steps are on the Terms and privacy page.'],
-      ['Which devices does Attos run on?', 'Attos is an Android app and is currently in testing. It will be available on Google Play soon.'],
+      ['Which devices does Attos run on?', 'Attos is an Android app, available on Google Play. It runs on phones and tablets with Android 7 or newer.'],
     ],
     band: { title: 'Start your next workout with Attos', text: 'Six questions and your workouts are ready.' },
   },

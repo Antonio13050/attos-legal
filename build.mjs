@@ -10,9 +10,8 @@ import en from './content/en.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SITE = {
-  // Enquanto o app está em teste interno não há página pública na loja: deixe null.
-  // Ao publicar, troque por 'https://play.google.com/store/apps/details?id=com.attos.app'
-  playUrl: null,
+  // Página pública do app na loja; null mostra o aviso "em breve" no lugar do botão
+  playUrl: 'https://play.google.com/store/apps/details?id=com.attos.app',
   support: 'contato@attosfit.com',
   privacy: 'privacidade@attosfit.com',
   base: 'https://attosfit.com/',

@@ -83,7 +83,7 @@ export default {
       ['O Coach IA substitui um personal ou nutricionista?', 'Não. O Coach IA é um apoio: tira dúvidas e sugere treinos com base na sua ficha, mas pode errar. Confira sempre as sugestões e procure um profissional habilitado, principalmente se você tem lesões ou condições de saúde.'],
       ['Posso usar em libras em vez de quilos?', 'Sim. Em Configurações, no grupo Treino, troque as unidades entre kg e lb.'],
       ['Como apago minha conta e meus dados?', 'No app, vá em Perfil, toque na engrenagem, role até o fim e toque em “Excluir conta e dados”. Se você já desinstalou o app, peça a exclusão por e-mail. O passo a passo está na página Termos e privacidade.'],
-      ['Em quais aparelhos o Attos funciona?', 'O Attos é um app para Android e está em fase de testes. Em breve estará disponível no Google Play.'],
+      ['Em quais aparelhos o Attos funciona?', 'O Attos é um app para Android, disponível no Google Play. Funciona em celulares e tablets com Android 7 ou mais novo.'],
     ],
     band: { title: 'Comece o próximo treino com o Attos', text: 'Seis perguntas e seus treinos estão prontos.' },
   },
