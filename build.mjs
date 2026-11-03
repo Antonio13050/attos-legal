@@ -163,6 +163,22 @@ const LANDINGS = [
     ],
     note: 'Para Android. Registrar treinos é grátis para sempre.',
   },
+  {
+    file: 'treino.html',
+    shot: 'home',
+    shotAlt: 'Tela inicial do Attos: treino de hoje, os treinos dos últimos 7 dias, água e dieta',
+    referrer: 'utm_source%3Dmeta%26utm_medium%3Dpaid%26utm_campaign%3Dlancamento%26utm_content%3Dcarrossel-apresentacao',
+    title: 'Sua evolução na palma da mão — Attos',
+    desc: 'O app de musculação que monta seu treino, registra cada série e mostra o quanto você evoluiu. Para Android.',
+    h1: 'Sua evolução na <b>palma da mão</b>',
+    lead: 'O app de musculação que monta seu treino, registra cada série e mostra o quanto você evoluiu.',
+    ticks: [
+      'Responda 6 perguntas e receba uma divisão para o seu objetivo',
+      'Carga e repetições da última vez ao lado de cada série',
+      'Constância, volume, recordes e 1RM estimado a partir do que você registrou',
+    ],
+    note: 'Para Android. Registrar treinos é grátis para sempre.',
+  },
 ];
 
 function landingPage(d) {
