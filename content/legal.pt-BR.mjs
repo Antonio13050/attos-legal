@@ -1,6 +1,6 @@
 export default {
   app: 'Aplicativo: Attos',
-  updated: 'Última atualização: 11 de outubro de 2026',
+  updated: 'Última atualização: 3 de novembro de 2026',
   contactTitle: 'Contato',
   supportLabel: 'Suporte e dúvidas gerais',
   privacyLabel: 'Privacidade e encarregado (LGPD)',
@@ -53,6 +53,7 @@ export default {
             '<b>Alimentação e hábitos:</b> metas de calorias e macronutrientes, refeições registradas, consumo de água, suplementos e seus horários, e preferências alimentares.',
             '<b>Conversas com o Coach IA:</b> as mensagens que você envia e as fotos de fichas de treino que você anexa.',
             '<b>Dados de assinatura:</b> se você assinar o Attos PRO, o estado da assinatura e um identificador da compra. Não recebemos nem guardamos dados do seu cartão.',
+            '<b>Origem da instalação:</b> quando o Google Play informa, de qual link ou campanha o app foi baixado (por exemplo, “Instagram”) e a data. É uma contagem anônima: não inclui seu nome, sua conta nem um identificador do aparelho.',
           ],
         ],
       },
@@ -75,7 +76,7 @@ export default {
           [
             '<b>Google Firebase (Google):</b> login com a conta Google e banco de dados na nuvem, usados somente se você entrar com o Google.',
             '<b>Provedores de inteligência artificial (OpenRouter e Google Gemini):</b> quando você usa o Coach IA ou o ajuste de dieta com IA, sua mensagem segue para o provedor junto com o contexto da sua ficha: primeiro nome, idade, peso, altura, objetivo, nível, local de treino, dores informadas, preferências alimentares, suplementos cadastrados, metas da dieta, consumo de água e um resumo dos treinos recentes. Fotos de fichas que você anexar também são enviadas para leitura. Não enviamos e-mail, senha nem dados de pagamento.',
-            '<b>Cloudflare:</b> hospeda o servidor do Coach IA, por onde as mensagens passam antes de chegar ao provedor de IA. Nele ficam o contador diário de mensagens e as respostas que você reportar.',
+            '<b>Cloudflare:</b> hospeda o servidor do Coach IA, por onde as mensagens passam antes de chegar ao provedor de IA. Nele ficam o contador diário de mensagens, as respostas que você reportar, a contagem anônima da origem das instalações e registros técnicos dos pedidos à IA (modelo, tempo e erro, sem o conteúdo das mensagens).',
             '<b>Google Play e RevenueCat:</b> processam a assinatura do Attos PRO e informam ao app se ela está ativa.',
           ],
           'Esses fornecedores podem tratar dados em servidores fora do Brasil, seguindo as próprias políticas de privacidade e as salvaguardas previstas na LGPD para transferência internacional.',

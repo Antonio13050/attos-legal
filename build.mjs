@@ -11,7 +11,7 @@ import en from './content/en.mjs';
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SITE = {
   // Página pública do app na loja; null mostra o aviso "em breve" no lugar do botão
-  playUrl: 'https://play.google.com/store/apps/details?id=com.attos.app',
+  playUrl: 'https://play.google.com/store/apps/details?id=com.attos.app&amp;referrer=utm_source%3Dsite%26utm_medium%3Dweb%26utm_campaign%3Dsite',
   support: 'contato@attosfit.com',
   privacy: 'privacidade@attosfit.com',
   base: 'https://attosfit.com/',
