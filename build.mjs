@@ -141,6 +141,73 @@ ${body}
 `;
 }
 
+/**
+ * Páginas de destino de anúncios (a Meta recusa link direto da loja em campanha de Tráfego).
+ * Uma por criativo: o botão leva a etiqueta do anúncio, e o app conta a instalação por ela.
+ * Ficam fora dos buscadores e sem pixel, cookie ou qualquer dado enviado à Meta.
+ */
+const LANDINGS = [
+  {
+    file: 'agua.html',
+    shot: 'water',
+    shotAlt: 'Tela de Água do Attos: 1.750 de 2.750 ml, com botões para registrar copo, caneca, garrafa e squeeze',
+    referrer: 'utm_source%3Dmeta%26utm_medium%3Dpaid%26utm_campaign%3Dlancamento%26utm_content%3Dvideo-agua',
+    title: 'A água ficou pra depois de novo? — Attos',
+    desc: 'O Attos lembra na hora certa, e você registra o copo em um toque. Para Android.',
+    h1: 'A água ficou pra depois <b>de novo?</b>',
+    lead: 'O Attos lembra na hora certa, e você registra o copo em um toque.',
+    ticks: [
+      'Lembretes nos horários que você escolher, com horário de silêncio',
+      'Meta de água calculada pelo seu peso',
+      'Também monta seu treino, registra cada série e mostra sua evolução',
+    ],
+    note: 'Para Android. Registrar treinos é grátis para sempre.',
+  },
+];
+
+function landingPage(d) {
+  const lang = LANGS[0];
+  const c = lang.content;
+  const boot = `(function(){try{document.documentElement.setAttribute('data-theme',window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}})();`;
+  const store = `https://play.google.com/store/apps/details?id=com.attos.app&amp;referrer=${d.referrer}`;
+  return `<!doctype html>
+<html lang="${lang.code}" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${esc(d.title)}</title>
+  <meta name="description" content="${esc(d.desc)}">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0c87eb">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <script>${boot}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="land">
+<main class="wrap">
+  <div class="land-text">
+    <a class="brand" href="./"><img src="assets/favicon.svg" alt="" width="32" height="32"><span>Attos</span></a>
+    <h1>${d.h1}</h1>
+    <p class="lead">${d.lead}</p>
+    <a class="btn land-btn" href="${store}" rel="noopener">${ICON.play}Baixar no Google Play</a>
+    <p class="land-note">${d.note}</p>
+    <ul class="ticks">${d.ticks.map((t) => `<li>${t}</li>`).join('')}</ul>
+  </div>
+  ${phone(lang, d.shot, d.shotAlt, { eager: true })}
+</main>
+<footer class="land-foot">
+  <small>Tela do app com dados de demonstração. ${c.foot.disclaimer}</small>
+  <small><a href="privacy">${c.legal.privacy.short}</a> · <a href="terms">${c.legal.terms.short}</a> · <a href="mailto:${SITE.support}">${c.foot.contact}</a></small>
+</footer>
+</body>
+</html>
+`;
+}
+
 function phone(lang, shot, alt, { eager = false, zoomLabel } = {}) {
   const up = lang.dir ? '../' : '';
   const img = (theme) => `<img class="t-${theme}" src="${up}assets/shots/${lang.code}/${theme}/${shot}.webp" alt="${esc(alt)}" width="390" height="844" loading="${eager ? 'eager' : 'lazy'}" decoding="async">`;
@@ -336,6 +403,7 @@ for (const lang of LANGS) {
   fs.writeFileSync(path.join(out, 'privacy.html'), docPage(lang, 'privacy.html', L.privacy));
   fs.writeFileSync(path.join(out, 'terms.html'), docPage(lang, 'terms.html', L.terms));
 }
+for (const d of LANDINGS) fs.writeFileSync(path.join(ROOT, d.file), landingPage(d));
 fs.writeFileSync(path.join(ROOT, '404.html'), shell(LANGS[0], '404.html', {
   title: 'Página não encontrada — Attos',
   desc: 'Página não encontrada.',

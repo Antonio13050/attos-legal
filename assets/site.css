@@ -296,5 +296,21 @@ dialog.zoom img { height: min(92vh, 844px); width: auto; border-radius: 26px; bo
   .langs a { padding: 5px 8px; }
   .brand span { display: none; }
 }
+/* ---------- Destino de anúncio: o botão precisa aparecer sem rolar, no celular ---------- */
+.land main { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; max-width: 920px; padding-top: 56px; padding-bottom: 40px; }
+.land h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; margin-top: 20px; letter-spacing: -0.035em; }
+.land h1 b { font-weight: 800; color: var(--brand); }
+.land .lead { font-size: 18px; color: var(--muted); margin-top: 14px; }
+.land-btn { margin-top: 22px; height: 56px; padding: 0 28px; font-size: 17px; }
+.land-note { margin-top: 12px; font-size: 14px; color: var(--muted); }
+.land .ticks { margin-top: 24px; }
+.land-foot { max-width: 920px; margin: 0 auto; padding: 0 20px 32px; display: grid; gap: 6px; color: var(--muted); }
+@media (max-width: 760px) {
+  .land main { grid-template-columns: 1fr; gap: 32px; padding-top: 20px; }
+  .land h1 { margin-top: 16px; }
+  .land-btn { width: 100%; }
+  .land .phone { margin: 0 auto; max-width: 260px; }
+}
+
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print { .top, .foot, .toc, .toc-select { display: none; } body { background: #fff; color: #000; } }
