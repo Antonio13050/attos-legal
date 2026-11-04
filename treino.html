@@ -31,5 +31,6 @@
   <small>Tela do app com dados de demonstração. O Attos é uma ferramenta de organização de treinos. Não substitui médico, profissional de educação física nem nutricionista.</small>
   <small><a href="privacy">Privacidade</a> · <a href="terms">Termos de uso</a> · <a href="mailto:contato@attosfit.com">Contato</a></small>
 </footer>
+<script>document.querySelector('.land-btn').addEventListener('click',function(){try{navigator.sendBeacon('https://api.attosfit.com/v1/store-tap',JSON.stringify({page:'treino'}))}catch(e){}});</script>
 </body>
 </html>

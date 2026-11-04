@@ -79,7 +79,7 @@ export default {
           [
             '<b>Google Firebase (Google):</b> sign-in with your Google account and the cloud database, used only if you sign in with Google.',
             '<b>Artificial intelligence providers (OpenRouter and Google Gemini):</b> when you use AI Coach or the AI diet adjustment, your message is sent to the provider together with the context of your profile: first name, age, weight, height, goal, level, training place, pain areas you reported, dietary preferences, supplements you added, diet targets, water intake and a summary of your recent workouts. Photos of workout sheets you attach are also sent to be read. We do not send your email, password or payment data.',
-            '<b>Cloudflare:</b> hosts the AI Coach server, which messages pass through before reaching the AI provider. It stores the daily message counter, the answers you report, the anonymous count of install sources and technical records of AI requests (model, time and error, without the content of your messages).',
+            '<b>Cloudflare:</b> hosts the AI Coach server, which messages pass through before reaching the AI provider. It stores the daily message counter, the answers you report, the anonymous count of install sources and of taps on the download button of the site’s ad pages, and technical records of AI requests (model, time and error, without the content of your messages).',
             '<b>Google Play and RevenueCat:</b> they process the Attos PRO subscription and tell the app whether it is active.',
           ],
           'These providers may process data on servers outside Brazil, under their own privacy policies and the safeguards the LGPD sets for international transfers.',

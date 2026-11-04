@@ -145,6 +145,7 @@ ${body}
  * Páginas de destino de anúncios (a Meta recusa link direto da loja em campanha de Tráfego).
  * Uma por criativo: o botão leva a etiqueta do anúncio, e o app conta a instalação por ela.
  * Ficam fora dos buscadores e sem pixel, cookie ou qualquer dado enviado à Meta.
+ * O toque em "Baixar" soma um contador anônimo no nosso servidor; o link continua indo direto à loja.
  */
 const LANDINGS = [
   {
@@ -219,6 +220,7 @@ function landingPage(d) {
   <small>Tela do app com dados de demonstração. ${c.foot.disclaimer}</small>
   <small><a href="privacy">${c.legal.privacy.short}</a> · <a href="terms">${c.legal.terms.short}</a> · <a href="mailto:${SITE.support}">${c.foot.contact}</a></small>
 </footer>
+<script>document.querySelector('.land-btn').addEventListener('click',function(){try{navigator.sendBeacon('https://api.attosfit.com/v1/store-tap',JSON.stringify({page:'${d.file.replace('.html', '')}'}))}catch(e){}});</script>
 </body>
 </html>
 `;
